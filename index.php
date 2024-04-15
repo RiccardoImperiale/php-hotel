@@ -37,6 +37,7 @@ $hotels = [
         'distance_to_center' => 50
     ],
 ];
+
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +56,7 @@ $hotels = [
         <!-- form -->
         <form action="" method="get" class="my-5">
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="parking" name="parking">
+                <input type="checkbox" class="form-check-input" id="parking" name="parking" <?= isset($_GET['parking']) ? 'checked' : '' ?>>
                 <label class="form-check-label" for="parking">Has Parking</label>
             </div>
             <button type="submit" class="btn btn-primary">Apply Filter</button>
@@ -64,7 +65,7 @@ $hotels = [
         <table class="table table-striped ">
             <thead>
                 <tr>
-                    <th scope="col"></th>
+                    <th scope="col">id</th>
                     <th scope="col">Name</th>
                     <th scope="col">Description</th>
                     <th scope="col">Parking</th>
@@ -93,18 +94,10 @@ $hotels = [
                             <td><?= $hotel['distance_to_center'] . ' km' ?></td>
                         </tr>
                     <?php } ?>
-
-
-
-
                 <?php endforeach; ?>
-
-
-
             </tbody>
         </table>
     </div>
-
 </body>
 
 </html>
